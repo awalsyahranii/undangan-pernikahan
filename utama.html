@@ -14,7 +14,16 @@
 </head>
 <body>
 
-        <audio id="musik" loop preload="auto">
+        <audio id="musik" loop playsinline preload="auto">
+            <source src="audio/shafeofmyheard-backstreet (mp3cut.net).mp3" type="audio/ogg">
+            <source src="audio/shafeofmyheard-backstreet (mp3cut.net).mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="musikAndroid" loop playsinline preload="auto">
+            <source src="audio/shafeofmyheard-backstreet (mp3cut.net).mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="musikiPhone" loop playsinline preload="auto">
             <source src="audio/shafeofmyheard-backstreet (mp3cut.net).mp3" type="audio/mpeg">
         </audio>
 
@@ -285,40 +294,28 @@ ${ucapan}`;
     }
 
     // lagu
-   const musik = document.getElementById("musik");
-let sudahPlay = false;
+    function startAudio() {
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-function playMusic() {
+        const audioAndroid = document.getElementById("musikAndroid");
+        const audioIOS = document.getElementById("musikiPhone");
 
-    if (sudahPlay) return;
+        if (isIOS) {
+            audioIOS.muted = false;
+            audioIOS.play().catch(() => {});
+        } else {
+            audioAndroid.muted = false;
+            audioAndroid.play().catch(() => {});
+        }
 
-    musik.play()
-    .then(() => {
+        document.removeEventListener("touchstart", startAudio);
+        document.removeEventListener("click", startAudio);
+        document.removeEventListener("scroll", startAudio);
+    }
 
-        sudahPlay = true;
-
-        hapusEvent();
-
-    })
-    .catch(err => console.log(err));
-
-}
-
-function hapusEvent(){
-
-    window.removeEventListener("click", playMusic);
-    window.removeEventListener("touchstart", playMusic);
-    window.removeEventListener("pointerdown", playMusic);
-    window.removeEventListener("wheel", playMusic);
-    window.removeEventListener("scroll", playMusic);
-
-}
-
-window.addEventListener("click", playMusic);
-window.addEventListener("touchstart", playMusic);
-window.addEventListener("pointerdown", playMusic);
-window.addEventListener("wheel", playMusic,{passive:true});
-window.addEventListener("scroll", playMusic,{passive:true});
+    document.addEventListener("touchstart", startAudio, { once: true });
+    document.addEventListener("click", startAudio, { once: true });
+    document.addEventListener("scroll", startAudio, { once: true });
 
 /*amplop*/
 function copyRekening(){
