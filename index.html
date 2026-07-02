@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+
+    <link rel="stylesheet" href="styleindex.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lobster&family=Momo+Signature&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="atas">
+        <h3>Undangan Pernikahan</h3>
+        <h2><i>Anwar & Ulfi</i></h2>
+    </div>
+
+    <div class="bawah">
+
+        <div class="guest-box">
+
+            <p>Kepada Yth.</p>
+            <p>Bapak/Ibu/Saudara/i</p>
+
+            <p id="guest-name">
+                <strong>Nama Tamu</strong>
+            </p>
+
+            <p>Di Tempat</p>
+
+            <div class="link">
+                <a href="utama.html">
+                    <button class="btn">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <span>Buka Undangan</span>
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const nameParam = params.get("nama");
+
+    const guestName = nameParam
+        ? nameParam.charAt(0).toUpperCase() + nameParam.slice(1)
+        : "Tamu Undangan";
+
+    document.getElementById("guest-name").textContent =
+        decodeURIComponent(guestName);
+</script>
+
+</body>
+</html>

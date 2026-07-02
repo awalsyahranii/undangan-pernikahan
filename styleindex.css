@@ -1,0 +1,279 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background-image: url(foto/foto10.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Overlay agar foto lebih elegan */
+header::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* background: rgba(142, 134, 134, 0.35); */
+    backdrop-filter: grayscale(25%);
+    z-index: -1;
+}
+
+/* ========================= */
+/* Atas */
+/* ========================= */
+
+.atas{
+    transform: translateY(-230px); /* naik 30px */
+    padding-top: 310px;
+    color: white;
+}
+
+.atas h2{
+    font-family:"Dancing Script", cursive;
+    font-size:55px;
+    margin:0;
+    text-shadow:2px 2px 8px rgba(0,0,0,.4);
+}
+
+header .atas h3{
+    font-family:"Dancing Script", cursive;
+    font-style:italic;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+/* ========================= */
+/* Tengah */
+/* ========================= */
+/* =========================
+   BAGIAN TAMU
+========================= */
+
+header .bawah{
+    margin-top:110px;
+    display:flex;
+    justify-content:center;
+}
+
+/* =========================
+   KOTAK BLUR
+========================= */
+
+header .guest-box{
+
+    width:280px;
+
+    padding:14px 18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:16px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+
+}
+
+/* =========================
+   TULISAN
+========================= */
+
+header .guest-box p{
+
+    margin:4px 0;
+
+    color:#fff;
+
+    font-family:"Dosis", sans-serif;
+
+    font-size:17px;
+
+    line-height:1.3;
+
+}
+
+#guest-name{
+
+    margin:10px 0;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    line-height:1.2;
+
+}
+
+/* =========================
+   TOMBOL
+========================= */
+
+header .guest-box .link{
+
+    margin-top:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+header .guest-box .link a{
+    text-decoration:none;
+}
+
+header .guest-box .btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    width:220px;
+    height:42px;
+
+    border:none;
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-family:"Dosis", sans-serif;
+    font-size:17px;
+    font-weight:700;
+
+    color:white;
+
+    background:linear-gradient(135deg,#b4afb6,#89758f);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.20);
+
+    transition:all .35s ease;
+
+}
+
+header .guest-box .btn i{
+
+    font-size:18px;
+
+    transition:.35s;
+
+}
+
+header .guest-box .btn:hover{
+
+    transform:translateY(-3px);
+
+    background:linear-gradient(135deg,#756d7a,#e1c4e8);
+
+    box-shadow:0 12px 24px rgba(0,0,0,.25);
+
+}
+
+header .guest-box .btn:hover i{
+
+    transform:rotate(-15deg) scale(1.1);
+
+}
+
+header .guest-box .btn:active{
+
+    transform:scale(.97);
+
+}
+
+/* ========================= */
+/* Responsive Tablet */
+/* ========================= */
+
+@media (max-width:768px){
+
+    .atas{
+        transform:translateY(-180px);
+        padding-top:250px;
+    }
+
+    .atas h2{
+        font-size:46px;
+    }
+
+    header .atas h3{
+        font-size:24px;
+    }
+
+    #guest-name{
+        font-size:26px;
+    }
+
+    header .link .btn{
+        width:250px;
+        padding:14px 20px;
+        font-size:17px;
+    }
+
+}
+
+/* ========================= */
+/* Responsive HP */
+/* ========================= */
+
+@media (max-width:480px){
+
+    .atas{
+        transform:translateY(-150px);
+        padding-top:220px;
+    }
+
+    .atas h2{
+        font-size:40px;
+    }
+
+    header .atas h3{
+        font-size:22px;
+    }
+
+    header .bawah p{
+        font-size:16px;
+    }
+
+    #guest-name{
+        font-size:24px;
+    }
+
+    header .link{
+        margin-top:30px;
+    }
+
+    header .link .btn{
+
+        width:220px;
+
+        padding:13px 18px;
+
+        font-size:16px;
+    }
+
+    header .link .btn i{
+        font-size:20px;
+    }
+
+}
