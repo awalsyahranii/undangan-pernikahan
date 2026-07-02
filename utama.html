@@ -288,23 +288,37 @@ ${ucapan}`;
    const musik = document.getElementById("musik");
 let sudahPlay = false;
 
-// Muat audio sejak halaman dibuka
-window.addEventListener("load", () => {
-    musik.load();
-});
-
-// Langsung putar saat pertama kali scroll
-window.addEventListener("wheel", playMusic, { passive: true });
-window.addEventListener("touchmove", playMusic, { passive: true });
-
 function playMusic() {
+
     if (sudahPlay) return;
 
-    sudahPlay = true;
+    musik.play()
+    .then(() => {
 
-    musik.currentTime = 0;
-    musik.play().catch(err => console.log(err));
+        sudahPlay = true;
+
+        hapusEvent();
+
+    })
+    .catch(err => console.log(err));
+
 }
+
+function hapusEvent(){
+
+    window.removeEventListener("click", playMusic);
+    window.removeEventListener("touchstart", playMusic);
+    window.removeEventListener("pointerdown", playMusic);
+    window.removeEventListener("wheel", playMusic);
+    window.removeEventListener("scroll", playMusic);
+
+}
+
+window.addEventListener("click", playMusic);
+window.addEventListener("touchstart", playMusic);
+window.addEventListener("pointerdown", playMusic);
+window.addEventListener("wheel", playMusic,{passive:true});
+window.addEventListener("scroll", playMusic,{passive:true});
 
 /*amplop*/
 function copyRekening(){
